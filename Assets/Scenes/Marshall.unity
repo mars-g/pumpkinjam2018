@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 50758699399476224, guid: 45a2f03148889af4d82511170917c5ba,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 2.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a2f03148889af4d82511170917c5ba, type: 2}
   m_IsPrefabParent: 0
@@ -197,6 +202,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9605b39bd9680c4418506b4bc135ad78, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &877600910 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1569492704188252, guid: 9605b39bd9680c4418506b4bc135ad78,
+    type: 2}
+  m_PrefabInternal: {fileID: 851622288}
+--- !u!114 &877600911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877600910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf3f792c25df7e49bbba87e90de22d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1404933554 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1687743115468546, guid: 45a2f03148889af4d82511170917c5ba,
@@ -214,7 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpSpeed: 8
+  jumpSpeed: 10
+  jumpTime: 2
+  gravityScalar: 1
+  jumpState: 2
 --- !u!1 &1643687064
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +291,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -289,10 +313,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1643687064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.04632192, w: 0.9989266}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.31}
