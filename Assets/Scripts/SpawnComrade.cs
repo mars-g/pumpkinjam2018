@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnComrade : MonoBehaviour {
 
     public GameObject comrade;
+    public bool canSpawn = true;
 
     private Stats stats;
 	// Use this for initialization
@@ -14,7 +15,11 @@ public class SpawnComrade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0))
+
+        if (Time.timeScale == 0) {
+            StartCoroutine(pauseBuffer());
+        }
+		if (Input.GetMouseButtonDown(0) && canSpawn)
         {
             if (stats.comrades > 0) {
                 Vector3 position = FindObjectOfType<CursorControl>().gameObject.transform.position;
@@ -25,4 +30,10 @@ public class SpawnComrade : MonoBehaviour {
             
         }
 	}
+
+    private IEnumerator pauseBuffer() {
+        canSpawn = false;
+        yield return new WaitForSeconds(0.1f);
+        canSpawn = true;
+    }
 }
