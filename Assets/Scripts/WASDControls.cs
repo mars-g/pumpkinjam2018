@@ -13,15 +13,19 @@ public class WASDControls : MonoBehaviour {
     public float pushModifier = 0f;
     public float wallJumpTime = 1f;
 
-
+    //private bool grounded;
     private float wallDirection;
     //jump state stores the number of jumps character can use before hitting the ground
     public int jumpState = 2;
 
     private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer sr;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +54,21 @@ public class WASDControls : MonoBehaviour {
         {
             StartCoroutine(AdvancedJumpPhysics());
         }
+
+        if (rb.velocity.x < 0)
+        {
+            sr.flipX = true;
+        }
+        else if(rb.velocity.x > 0)
+        {
+            sr.flipX = false;
+        }
+
+        anim.SetBool("Running", (moveHor != 0) && (jumpState == 2));
+        anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
+        anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
+        anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
+
     }
 
     private IEnumerator AdvancedJumpPhysics() {
@@ -81,6 +100,7 @@ public class WASDControls : MonoBehaviour {
     {
         if (collision.gameObject.GetComponent<Ground>())
         {
+            //grounded = true;
             jumpState = 2;
             wallDirection = 0;
         }
@@ -100,6 +120,7 @@ public class WASDControls : MonoBehaviour {
     {
         if ((collision.gameObject.GetComponent<Ground>()) && jumpState == 2)
         {
+            //grounded = false;
             jumpState--;
         }
         else if (collision.gameObject.GetComponent<Wall>()) {
