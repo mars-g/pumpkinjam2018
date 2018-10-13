@@ -12,8 +12,13 @@ public class WASDControls : MonoBehaviour {
     public float wallPush = 3f;
     public float pushModifier = 0f;
     public float wallJumpTime = 1f;
+    public float slideSpeed = 3f;
+    public float slideCD = 2f;
+    public float slideTime = 1f;
+    private float slideTimer = 0f;
+    private float slideMove = 0f;
 
-    //private bool grounded;
+    //stores direction from the wall to walljump
     private float wallDirection;
     //jump state stores the number of jumps character can use before hitting the ground
     public int jumpState = 2;
@@ -30,13 +35,19 @@ public class WASDControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Get left right movement
         float moveHor = Input.GetAxis("Horizontal") * moveSpeed;
+        //set default vertical speed
         float moveVert = rb.velocity.y;
+
+        //check for walljump
         if (wallDirection != 0 && Input.GetButtonDown("Jump") && jumpState != 2)
         {
             moveVert = jumpSpeed;
             StartCoroutine(WallJump());
         }
+
+        //check for able to normal jump
         else if (jumpState > 0)
         {
             if (Input.GetButtonDown("Jump"))
@@ -46,15 +57,35 @@ public class WASDControls : MonoBehaviour {
             }
         }
 
+        //CHECK FOR SLIDE
+        if (jumpState == 2 && Input.GetAxis("Vertical") < 0 && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
+        {
+            slideTimer = Time.time + slideTime;
+            slideMove = Mathf.Sign(moveHor) * slideSpeed;
+        }
+
+        //end slide because a wall is hit
+        if (wallDirection != 0) {
+            slideTimer = 0;
+        }
+
+        //implement slide
+        if (slideTimer > Time.time)
+        {
+            moveHor = slideMove;
+        }
         
         
-        
+        //SETS VELOCITY
         rb.velocity = new Vector2(moveHor + pushModifier, moveVert);
+
+        //checks for and applies advanced jump physics
         if (jumpState < 2 && Mathf.Abs(rb.velocity.y) < 0.5)
         {
             StartCoroutine(AdvancedJumpPhysics());
         }
 
+        //animation states
         if (rb.velocity.x < 0)
         {
             sr.flipX = true;
@@ -64,6 +95,7 @@ public class WASDControls : MonoBehaviour {
             sr.flipX = false;
         }
 
+        //set animation states
         anim.SetBool("Running", (moveHor != 0) && (jumpState == 2));
         anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
@@ -71,6 +103,13 @@ public class WASDControls : MonoBehaviour {
 
     }
 
+
+    ///<summary>
+    /// Applies advanced jump physics to player
+    /// 
+    /// When player reaches the apex of their jump, applies an extra downward force so the jump doesn't feel floaty
+    /// </summary>
+    /// <returns>Returns async null at every point in loop</returns>
     private IEnumerator AdvancedJumpPhysics() {
         int currentJumpState = jumpState;
         for (float t = 0; t < jumpTime; t += Time.deltaTime) {
@@ -83,6 +122,10 @@ public class WASDControls : MonoBehaviour {
         yield return null;
     }
 
+    /// <summary>
+    /// Applies Async walljump force in opposite direction of the player
+    /// </summary>
+    /// <returns>Async null</returns>
     private IEnumerator WallJump()
     {
         float wallDir = wallDirection;
