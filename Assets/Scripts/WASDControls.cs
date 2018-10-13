@@ -130,13 +130,11 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
         anim.SetBool("Sliding",slideTimer>Time.time);
-        anim.SetBool("Swinging", !canatk);
+        anim.SetBool("Swinging", !canatk && swing.activeSelf);
     }
 
     IEnumerator Swing()
     {
-        print("swinging");
-
         canatk = false;
         swing.SetActive(true);
         yield return new WaitForSeconds(.15f);
