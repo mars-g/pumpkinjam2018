@@ -33,6 +33,10 @@ public class EnemyHealth : MonoBehaviour {
         {
             curHealth -= 3;
         }
+        else if (collision.gameObject.tag == "ExplosionBox")
+        {
+            curHealth -= 4;
+        }
 
         if (curHealth < 0)
             curHealth = 0;
