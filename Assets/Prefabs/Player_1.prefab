@@ -115,6 +115,9 @@ MonoBehaviour:
   wallPush: 7
   pushModifier: 0
   wallJumpTime: 0.5
+  slideSpeed: 10
+  slideCD: 0.5
+  slideTime: 1
   jumpState: 2
 --- !u!114 &114509696671107868
 MonoBehaviour:

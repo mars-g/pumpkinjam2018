@@ -100,7 +100,7 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
-
+        anim.SetBool("Sliding",slideTimer>Time.time);
     }
 
 

@@ -904,6 +904,9 @@ MonoBehaviour:
   wallPush: 7
   pushModifier: 0
   wallJumpTime: 0.5
+  slideSpeed: 3
+  slideCD: 2
+  slideTime: 1
   jumpState: 2
 --- !u!1001 &1530528813
 Prefab:
