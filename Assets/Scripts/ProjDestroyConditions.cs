@@ -22,6 +22,14 @@ public class ProjDestroyConditions : MonoBehaviour {
             collision.gameObject.GetComponent<ComradeController>().DealDamage(Damage);
             gameObject.SetActive(false);
         }
+        else if (collision.gameObject.tag=="Ground")
+        {
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.GetComponent<Ground>())
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +45,14 @@ public class ProjDestroyConditions : MonoBehaviour {
         else if(collision.gameObject.tag == "Comrade")
         {
             collision.gameObject.GetComponent<ComradeController>().DealDamage(Damage);
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.tag == "Ground")
+        {
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.GetComponent<Ground>())
+        {
             gameObject.SetActive(false);
         }
     }
