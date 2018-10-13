@@ -52,7 +52,7 @@ public class WASDControls : MonoBehaviour {
         //check for walljump
         if (wallDirection != 0 && Input.GetButtonDown("Jump") && jumpState != 2)
         {
-            moveVert = jumpSpeed;
+            moveVert = jumpSpeed * 1.3f;
             StartCoroutine(WallJump());
         }
 
