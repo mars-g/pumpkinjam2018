@@ -5,6 +5,8 @@ using UnityEngine;
 public class ProjDestroyConditions : MonoBehaviour {
 
 
+    public int Damage = 1;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "PlayerSwing")
@@ -17,7 +19,7 @@ public class ProjDestroyConditions : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "Comrade")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<ComradeController>().DealDamage(Damage);
             gameObject.SetActive(false);
         }
     }
@@ -34,7 +36,7 @@ public class ProjDestroyConditions : MonoBehaviour {
         }
         else if(collision.gameObject.tag == "Comrade")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<ComradeController>().DealDamage(Damage);
             gameObject.SetActive(false);
         }
     }

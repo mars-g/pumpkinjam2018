@@ -29,10 +29,10 @@ public class PlayerJumpOff : MonoBehaviour {
     private IEnumerator Lower() {
         for (float t = 0; t < lowerTime; t += Time.deltaTime)
         {
-            Vector3 pos = GetComponentInParent<Transform>().position;
+            //Vector3 pos = GetComponentInParent<Transform>().position;
             //GetComponentInParent<Transform>().position = new Vector3(pos.x, pos.y -0.2f, pos.z);
             yield return null;
         }
-        Destroy(transform.parent.gameObject);
+        transform.parent.GetComponent<ComradeController>().FadeOut();
     }
 }
