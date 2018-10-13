@@ -26,11 +26,18 @@ public class WASDControls : MonoBehaviour {
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
+
+    private GameObject slide;
+    private GameObject swing;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+
+        slide = transform.GetChild(0).gameObject;
+        swing = transform.GetChild(1).gameObject;
 	}
 	
 	// Update is called once per frame
@@ -72,7 +79,12 @@ public class WASDControls : MonoBehaviour {
         //implement slide
         if (slideTimer > Time.time)
         {
+            slide.SetActive(true);
             moveHor = slideMove;
+        }
+        else
+        {
+            slide.SetActive(false);
         }
         
         
@@ -89,10 +101,16 @@ public class WASDControls : MonoBehaviour {
         if (rb.velocity.x < 0)
         {
             sr.flipX = true;
+            swing.transform.localPosition = new Vector3(-5.25f, 0, 0);
+            slide.transform.localPosition = new Vector3(-10f, 0, 0);
         }
         else if(rb.velocity.x > 0)
         {
             sr.flipX = false;
+            swing.transform.localPosition = new Vector3(5.25f, 0, 0);
+            slide.transform.localPosition = new Vector3(10f, 0, 0);
+
+
         }
 
         //set animation states
