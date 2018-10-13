@@ -60,4 +60,12 @@ public class WASDControls : MonoBehaviour {
         }
 
     }
+    //checks for enter with trigger for double jump
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Ground>())
+        {
+            jumpState = 2;
+        }
+    }
 }
