@@ -8,6 +8,7 @@ TagManager:
   - Comrade
   - ExplosionBox
   - Ground
+  - EnemyWep
   layers:
   - Default
   - TransparentFX
