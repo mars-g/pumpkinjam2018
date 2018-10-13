@@ -13,9 +13,9 @@ public class CursorControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         var v = Input.mousePosition;
-        v.z = 10.0f;
+        v.z = 1.0f;
         transform.position = Camera.main.ScreenToWorldPoint(v);
 
         if (Input.GetMouseButton(0))

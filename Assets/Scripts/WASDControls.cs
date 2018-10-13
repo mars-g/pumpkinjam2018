@@ -16,9 +16,12 @@ public class WASDControls : MonoBehaviour {
     public float slideCD = 2f;
     public float slideTime = 1f;
     public float attackCD = .2f;
+    public float maxFallSpeed = -20f;
+
     private bool canatk = true;
     private float slideTimer = 0f;
     private float slideMove = 0f;
+    private bool wallJumped = false;
     private bool slideJumped = false;
 
     //stores direction from the wall to walljump
@@ -55,6 +58,8 @@ public class WASDControls : MonoBehaviour {
         {
             moveVert = jumpSpeed * 1.3f;
             StartCoroutine(WallJump());
+            StartCoroutine(AdvancedJumpPhysics());
+            
         }
 
         //check for able to normal jump
@@ -110,7 +115,11 @@ public class WASDControls : MonoBehaviour {
                 StartCoroutine("Swing");
             }
         }
-        
+
+        //sets to max fall speed
+        if (moveVert < maxFallSpeed) {
+            moveVert = maxFallSpeed;
+        }
         //SETS VELOCITY
         rb.velocity = new Vector2(moveHor + pushModifier, moveVert);
 
@@ -174,7 +183,7 @@ public class WASDControls : MonoBehaviour {
     private IEnumerator AdvancedJumpPhysics() {
         int currentJumpState = jumpState;
         for (float t = 0; t < jumpTime; t += Time.deltaTime) {
-            if (jumpState < currentJumpState || jumpState == 2) {
+            if (jumpState < currentJumpState || jumpState == 2 || wallJumped) {
                 break;
             }
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - gravityScalar);
@@ -189,6 +198,7 @@ public class WASDControls : MonoBehaviour {
     /// <returns>Async null</returns>
     private IEnumerator WallJump()
     {
+        wallJumped = true;
         float wallDir = wallDirection;
         for (float t = 0; t < wallJumpTime; t += Time.deltaTime)
         {
@@ -196,6 +206,7 @@ public class WASDControls : MonoBehaviour {
             yield return null;
         }
         pushModifier = 0;
+        wallJumped = false;
         yield return null;
     }
 

@@ -6,6 +6,7 @@ public class Stats : MonoBehaviour {
 
     public float health = 1f;
     public bool invuln = false;
+    public int comrades = 5;
 
 	// Use this for initialization
 	void Start () {
