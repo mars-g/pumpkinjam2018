@@ -112,16 +112,23 @@ public class WASDControls : MonoBehaviour {
         if (rb.velocity.x < 0)
         {
             sr.flipX = true;
-            swing.transform.localPosition = new Vector3(-5.25f, 0, 0);
-            slide.transform.localPosition = new Vector3(-10f, 0, 0);
+
         }
         else if(rb.velocity.x > 0)
         {
             sr.flipX = false;
+
+        }
+
+        if (sr.flipX)
+        {
+            swing.transform.localPosition = new Vector3(-5.25f, 0, 0);
+            slide.transform.localPosition = new Vector3(-10f, 0, 0);
+        }
+        else
+        {
             swing.transform.localPosition = new Vector3(5.25f, 0, 0);
             slide.transform.localPosition = new Vector3(10f, 0, 0);
-
-
         }
 
         //set animation states
