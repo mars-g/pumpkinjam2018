@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4916747770023484}
   - component: {fileID: 70848752922266762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerSwing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584188868387782}
   - component: {fileID: 70468342860620800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerSlide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comrade: {fileID: 1856857173139004, guid: c6202f3102b30d842b62a008c207901d, type: 2}
+  canSpawn: 1
 --- !u!212 &212105313844962126
 SpriteRenderer:
   m_ObjectHideFlags: 1

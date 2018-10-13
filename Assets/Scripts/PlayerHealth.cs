@@ -89,13 +89,13 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EnemyWep")
+        if (collision.gameObject.tag == "EnemyHitbox")
         {
-            TakeDamage(collision.gameObject.GetComponent<ProjDestroyConditions>().Damage);
+            TakeDamage(collision.gameObject.GetComponent<EnemyWepDamage>().Damage);
         }
-    }*/
+    }
 
     public static bool IsFull()
     {
