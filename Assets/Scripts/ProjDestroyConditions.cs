@@ -15,6 +15,7 @@ public class ProjDestroyConditions : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "Player")
         {
+            PlayerHealth.TakeDamage(Damage);
             gameObject.SetActive(false); //make this in the player health function instead
         }
         else if (collision.gameObject.tag == "Comrade")
@@ -40,6 +41,7 @@ public class ProjDestroyConditions : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "Player")
         {
+            PlayerHealth.TakeDamage(Damage);
             gameObject.SetActive(false); //make this in the player health function instead
         }
         else if(collision.gameObject.tag == "Comrade")

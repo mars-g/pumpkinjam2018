@@ -41,13 +41,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4076955211017982}
   - component: {fileID: 70921828582941882}
-  m_Layer: 0
+  - component: {fileID: 114607996430815706}
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4076955211017982
 Transform:
   m_ObjectHideFlags: 1
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391367300452548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4478626, y: -1.96, z: 0}
+  m_LocalPosition: {x: -20.243519, y: -1.5636289, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4076955211017982}
@@ -153,6 +154,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0420136d4c7ab49b1a7d6dc5102fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114607996430815706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758619326929028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa67541ee321e94c826049fffbd5778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!114 &114968537786736088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41ec9e8e1afe214880c5522ab2ab329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
+  Health: 5
 --- !u!212 &212249015938099806
 SpriteRenderer:
   m_ObjectHideFlags: 1
