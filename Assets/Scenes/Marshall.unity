@@ -932,6 +932,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763417e4f77aa0d459fc7cef13323cb3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &582463048
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069666548005654, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 162ca8c20ddb1c5479c848c5d6d17905, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &641340436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1603,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1026199133}
+--- !u!1001 &1094988244
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583113208516690, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034562734907944, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+      propertyPath: m_Name
+      value: PickupComrade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d65a8e741be91be43b4c8ec2a8d1a400, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1110889097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 2035669198}
+  paused: 0
 --- !u!4 &1862478848
 Transform:
   m_ObjectHideFlags: 0
