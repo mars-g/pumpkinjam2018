@@ -35,9 +35,15 @@ public class ComradeController : MonoBehaviour {
     private IEnumerator explodeCo()
     {
         GetComponentInChildren<CircleCollider2D>().enabled = true;
+        Color temp = Color.white;
+        temp.a = 1;
 
         for (float t = 0; t < explodeTime; t += Time.deltaTime)
         {
+            transform.Rotate(-Vector3.forward, 2.5f);
+            temp.a -= .05f;
+            GetComponent<SpriteRenderer>().color = temp;
+
             yield return null;
         }
         Destroy(GetComponentInParent<Transform>().gameObject);

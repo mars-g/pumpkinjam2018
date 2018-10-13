@@ -52,6 +52,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Comrade
+    uniqueID: 3818128591
+    locked: 0
   - name: Menu1
     uniqueID: 1938399023
     locked: 0
