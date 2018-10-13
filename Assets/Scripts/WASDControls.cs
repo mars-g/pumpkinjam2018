@@ -19,6 +19,7 @@ public class WASDControls : MonoBehaviour {
     private bool canatk = true;
     private float slideTimer = 0f;
     private float slideMove = 0f;
+    private bool slideJumped = false;
 
     //stores direction from the wall to walljump
     private float wallDirection;
@@ -81,11 +82,22 @@ public class WASDControls : MonoBehaviour {
         //implement slide
         if (slideTimer > Time.time)
         {
-            slide.SetActive(true);
             moveHor = slideMove;
+
+            if (jumpState < 2)
+            {
+                slideJumped = true;
+            }
+
+            if (!slideJumped)
+            {
+                slide.SetActive(true);
+            }                
+            else slide.SetActive(false);
         }
         else
         {
+            slideJumped = false;
             slide.SetActive(false);
         }
 
@@ -136,7 +148,7 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
-        anim.SetBool("Sliding",slideTimer>Time.time);
+        anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped);
         anim.SetBool("Swinging", !canatk && swing.activeSelf);
     }
 
