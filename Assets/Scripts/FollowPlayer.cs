@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
 
+    public float offset = 10f;
     private GameObject player;
 	// Use this for initialization
 	void Start () {
@@ -13,6 +14,6 @@ public class FollowPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 playerPos = player.GetComponent<Transform>().position;
-        GetComponent<Rigidbody>().transform.position = new Vector3(playerPos.x, GetComponent<Rigidbody>().transform.position.y, GetComponent<Rigidbody>().transform.position.z);
+        GetComponent<Rigidbody>().transform.position = new Vector3(playerPos.x, playerPos.y + offset, GetComponent<Rigidbody>().transform.position.z);
     }
 }

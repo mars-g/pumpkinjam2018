@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0776e36f9fe3d5441a11584998df0a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 1
 --- !u!54 &1643687070
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -451,11 +452,6 @@ Prefab:
     - target: {fileID: 4284107970499040, guid: c6202f3102b30d842b62a008c207901d, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895535668327418, guid: c6202f3102b30d842b62a008c207901d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6202f3102b30d842b62a008c207901d, type: 2}
