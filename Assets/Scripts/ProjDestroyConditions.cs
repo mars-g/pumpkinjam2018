@@ -15,6 +15,11 @@ public class ProjDestroyConditions : MonoBehaviour {
         {
             gameObject.SetActive(false); //make this in the player health function instead
         }
+        else if (collision.gameObject.tag == "Comrade")
+        {
+            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +31,11 @@ public class ProjDestroyConditions : MonoBehaviour {
         else if (collision.gameObject.tag == "Player")
         {
             gameObject.SetActive(false); //make this in the player health function instead
+        }
+        else if(collision.gameObject.tag == "Comrade")
+        {
+            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

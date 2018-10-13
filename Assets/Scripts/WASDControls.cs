@@ -15,6 +15,8 @@ public class WASDControls : MonoBehaviour {
     public float slideSpeed = 3f;
     public float slideCD = 2f;
     public float slideTime = 1f;
+    public float attackCD = .2f;
+    private bool canatk = true;
     private float slideTimer = 0f;
     private float slideMove = 0f;
 
@@ -86,7 +88,16 @@ public class WASDControls : MonoBehaviour {
         {
             slide.SetActive(false);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+
+            if(!slide.activeSelf && canatk)
+            {
+
+                StartCoroutine("Swing");
+            }
+        }
         
         //SETS VELOCITY
         rb.velocity = new Vector2(moveHor + pushModifier, moveVert);
@@ -119,7 +130,22 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
         anim.SetBool("Sliding",slideTimer>Time.time);
+        anim.SetBool("Swinging", !canatk);
     }
+
+    IEnumerator Swing()
+    {
+        print("swinging");
+
+        canatk = false;
+        swing.SetActive(true);
+        yield return new WaitForSeconds(.15f);
+        swing.SetActive(false);
+        yield return new WaitForSeconds(attackCD);
+        canatk = true;
+
+    }
+
 
 
     ///<summary>
