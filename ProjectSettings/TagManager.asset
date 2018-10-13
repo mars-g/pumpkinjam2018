@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyHitbox
   - Comrade
+  - ExplosionBox
   layers:
   - Default
   - TransparentFX
