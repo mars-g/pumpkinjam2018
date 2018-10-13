@@ -411,6 +411,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114947965051397120, guid: c8dcc3ad65d42864697d0c68b2b2be6d,
+        type: 2}
+      propertyPath: maxFallSpeed
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8dcc3ad65d42864697d0c68b2b2be6d, type: 2}
   m_IsPrefabParent: 0
@@ -856,15 +861,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1772995944550052, guid: c6202f3102b30d842b62a008c207901d, type: 2}
-      propertyPath: m_TagString
-      value: ExplosionBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 61464643909103310, guid: c6202f3102b30d842b62a008c207901d,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: cfb11520921937d499075c8c97a78591, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6202f3102b30d842b62a008c207901d, type: 2}
   m_IsPrefabParent: 0

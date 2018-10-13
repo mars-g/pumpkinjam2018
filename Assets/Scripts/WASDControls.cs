@@ -16,7 +16,7 @@ public class WASDControls : MonoBehaviour {
     public float slideCD = 2f;
     public float slideTime = 1f;
     public float attackCD = .2f;
-    public float maxFallSpeed = -12f;
+    public float maxFallSpeed = -20f;
 
     private bool canatk = true;
     private float slideTimer = 0f;
