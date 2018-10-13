@@ -12,10 +12,15 @@ public class ComradeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            transform.position = FindObjectOfType<CursorControl>().gameObject.transform.position;
+            Explode();
             
         }
    }
+
+
+    public void Explode() { }
+
+    
 }
