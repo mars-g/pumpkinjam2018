@@ -1155,6 +1155,16 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114947965051397120, guid: c8dcc3ad65d42864697d0c68b2b2be6d,
+        type: 2}
+      propertyPath: diveFallSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947965051397120, guid: c8dcc3ad65d42864697d0c68b2b2be6d,
+        type: 2}
+      propertyPath: diveMove
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8dcc3ad65d42864697d0c68b2b2be6d, type: 2}
   m_IsPrefabParent: 0
