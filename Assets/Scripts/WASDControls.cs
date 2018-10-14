@@ -174,6 +174,7 @@ public class WASDControls : MonoBehaviour {
             {
 
                 StartCoroutine("Swing");
+                GetComponent<Stats>().MakeInvuln(0.2f);
             }
         }
 
