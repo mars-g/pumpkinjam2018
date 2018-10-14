@@ -62,6 +62,7 @@ public class WASDControls : MonoBehaviour {
     }
 
     private float moveHor, moveVert;
+    private float pushMod2 = 0f;
     // Update is called once per frame
     void Update () {
         //Get left right movement
@@ -126,17 +127,26 @@ public class WASDControls : MonoBehaviour {
         //implement slide
         if (slideTimer > Time.time)
         {
-            moveHor = slideMove;
+            
             GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);
             GetComponent<CapsuleCollider2D>().size = new Vector2(origSize.x,7.57f);
-            if (jumpState < 2)
+            if (slideJumped) {
+
+            }
+            else if (jumpState < 2)
             {
                 slideJumped = true;
+                moveHor = Input.GetAxis("Horizontal") * moveSpeed;
+                pushMod2 = Mathf.Sign(moveHor) * wallPush;
 
+            }
+            if (jumpState == 2) {
+                pushMod2 = 0;
             }
 
             if (!slideJumped)
             {
+                moveHor = slideMove;
                 //GetComponent<Stats>().Invuln(false);
 
                 slide.SetActive(true);
@@ -150,6 +160,7 @@ public class WASDControls : MonoBehaviour {
         }
         else
         {
+            pushMod2 = 0;
             slideJumped = false;
             slide.SetActive(false);
             GetComponent<CapsuleCollider2D>().offset = origOffset;
@@ -171,7 +182,7 @@ public class WASDControls : MonoBehaviour {
             moveVert = maxFallSpeed;
         }
         //SETS VELOCITY      
-        rb.velocity = new Vector2(moveHor + pushModifier, moveVert);
+        rb.velocity = new Vector2(moveHor + pushModifier + pushMod2, moveVert);
  
         //checks for and applies advanced jump physics
         if (jumpState < 2 && Mathf.Abs(rb.velocity.y) < 0.5)
