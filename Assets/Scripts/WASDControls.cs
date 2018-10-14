@@ -151,7 +151,7 @@ public class WASDControls : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
-            if(!slide.activeSelf && canatk)
+            if(!slide.activeSelf && canatk && !inDive)
             {
 
                 StartCoroutine("Swing");
@@ -198,9 +198,10 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Running", (moveHor != 0) && (jumpState == 2));
         anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
-        anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
+        anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2 && !inDive);
         anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped && wallDirection==0);
         anim.SetBool("Swinging", !canatk && swing.activeSelf);
+        anim.SetBool("Divekicking", inDive);
     }
 
     private IEnumerator diveKick() {
