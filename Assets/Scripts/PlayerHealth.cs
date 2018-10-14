@@ -46,8 +46,14 @@ public class PlayerHealth : MonoBehaviour
         //HealthDisplay.UpdateDisplay()
     }
 
+
     public static void TakeDamage(int damage)
     {
+
+        if (instance.GetComponent<Stats>().invuln) {
+            return;
+        }
+
         instance.curhealth -= damage;
         if (instance.curhealth <= 0)
         {
