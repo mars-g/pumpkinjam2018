@@ -58,55 +58,65 @@ public class Boss1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!readytoattack)
+        if (!GetComponent<EnemyHealth>().isDying())
         {
-            Vector3 direction = curWaypoint.transform.position - transform.position;
-            rb.velocity = direction * 2.5f;
-        }
-        else if(!specialattacking && readytoattack)
-        {
-            if(normaltime >= Time.time - attackStart)
+
+
+            if (!readytoattack)
             {
-                if (canatk)
-                {
-                    StartCoroutine("Normal");
-                }
+                Vector3 direction = curWaypoint.transform.position - transform.position;
+                rb.velocity = direction * 2.5f;
             }
-            else
+            else if (!specialattacking && readytoattack)
             {
-                StopCoroutine("Normal");
-                canatk = true;
-                wpNum++;
-                if (wpNum >= waypoints.Length)
+                if (normaltime >= Time.time - attackStart)
                 {
-                    curWaypoint = specialWaypoint;
-                    specialattacking = true;
+                    if (canatk)
+                    {
+                        StartCoroutine("Normal");
+                    }
                 }
                 else
                 {
-                    curWaypoint = waypoints[wpNum];
+                    StopCoroutine("Normal");
+                    canatk = true;
+                    wpNum++;
+                    if (wpNum >= waypoints.Length)
+                    {
+                        curWaypoint = specialWaypoint;
+                        specialattacking = true;
+                    }
+                    else
+                    {
+                        curWaypoint = waypoints[wpNum];
+                    }
+                    readytoattack = false;
                 }
-                readytoattack = false;
+            }
+            else if (specialattacking && readytoattack)
+            {
+                if (specialtime >= Time.time - attackStart)
+                {
+                    if (canatk)
+                    {
+                        StartCoroutine("Special");
+                    }
+                }
+                else
+                {
+                    StopCoroutine("Special");
+                    canatk = true;
+                    wpNum = 0;
+                    curWaypoint = waypoints[wpNum];
+                    readytoattack = false;
+                    specialattacking = false;
+                }
             }
         }
-        else if (specialattacking && readytoattack)
+        else
         {
-            if (specialtime >= Time.time - attackStart)
-            {
-                if (canatk)
-                {
-                    StartCoroutine("Special");
-                }
-            }
-            else
-            {
-                StopCoroutine("Special");
-                canatk = true;
-                wpNum=0;
-                curWaypoint = waypoints[wpNum];
-                readytoattack = false;
-                specialattacking = false;
-            }
+            NormalProj.SetActive(false);
+            SpecialProj.SetActive(false);          
         }
 
 

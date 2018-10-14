@@ -55,8 +55,10 @@ public class PlayerHealth : MonoBehaviour
     public static void TakeDamage(int damage)
     {
 
+        AudioManager.PlayerHurt();
         if (instance.GetComponent<Stats>().invuln) {
             return;
+<<<<<<< HEAD
         }
         instance.GetComponent<Stats>().damageCo();
 
@@ -117,6 +119,65 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(collision.gameObject.GetComponent<EnemyWepDamage>().Damage);
         }
+=======
+        }
+        instance.GetComponent<Stats>().damageCo();
+
+
+
+        instance.curhealth -= damage;
+        if (instance.curhealth <= 0)
+        {
+            instance.curhealth = 0;
+            Die();
+        }
+        HealthDisplay.UpdateDisplay(instance.curhealth, instance.Health);
+
+
+    }
+
+    
+    public static void Die()
+    {
+        HealMax();
+        instance.gameObject.transform.position = instance.GetComponent<Stats>().lastCheckpoint;
+        
+        
+    }
+
+    public static void Heal(int heal)
+    {
+        instance.curhealth += heal;
+        if (instance.curhealth > instance.Health)
+        {
+            instance.curhealth = instance.Health;
+        }
+        HealthDisplay.UpdateDisplay(instance.curhealth, instance.Health);
+
+    }
+
+    public static void HealMax()
+    {
+        instance.curhealth = instance.Health;
+        HealthDisplay.UpdateDisplay(instance.curhealth, instance.Health);
+
+    }
+
+    public static void RaiseMax()
+    {
+        instance.Health += 2;
+        instance.curhealth = instance.Health;
+        HealthDisplay.SetDisplay();
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyHitbox")
+        {
+            TakeDamage(collision.gameObject.GetComponent<EnemyWepDamage>().Damage);
+        }
+>>>>>>> 3690847aef6995afef456be3a2002b481316acb0
         else if (collision.gameObject.tag == "Spikes") {
             onSpike = true;
         }

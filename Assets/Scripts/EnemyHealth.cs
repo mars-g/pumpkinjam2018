@@ -22,8 +22,23 @@ public class EnemyHealth : MonoBehaviour {
 
     public void Die()
     {
-        StartCoroutine("Dying");
-        //gameObject.SetActive(false);
+        dying = true;
+
+        if (name == "Boss1")
+        {
+            //StartCoroutine("BossDying");
+            GetComponent<Rigidbody2D>().gravityScale = 2.1f;
+            GetComponent<Rigidbody2D>().freezeRotation = false;
+            GetComponent<Rigidbody2D>().mass = 1f;
+
+            Color temp = Color.red;
+            temp.a = 1;
+            GetComponent<SpriteRenderer>().color = temp;
+
+        }
+        else
+            StartCoroutine("Dying");
+        
     }
 
     public bool isDying() { return dying; }
@@ -40,6 +55,7 @@ public class EnemyHealth : MonoBehaviour {
         }
         else if (collision.gameObject.name == "PlayerSwing")
         {
+            AudioManager.SwingHit();
             curHealth -= 4;
         }
         else if (collision.gameObject.tag == "ExplosionBox")
@@ -48,7 +64,10 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         if (curHealth < 0)
+        {
+            dying = true;
             curHealth = 0;
+        }
 
         if (curHealth <= 0)
             Die();
