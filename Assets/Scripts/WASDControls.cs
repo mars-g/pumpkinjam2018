@@ -24,6 +24,9 @@ public class WASDControls : MonoBehaviour {
     private bool wallJumped = false;
     private bool slideJumped = false;
 
+    //these are for shortening hurtbox during slide
+    private Vector2 origSize, origOffset;
+
     //stores direction from the wall to walljump
     private float wallDirection;
     //jump state stores the number of jumps character can use before hitting the ground
@@ -44,14 +47,20 @@ public class WASDControls : MonoBehaviour {
 
         slide = transform.GetChild(0).gameObject;
         swing = transform.GetChild(1).gameObject;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        origOffset = new Vector2(GetComponent<CapsuleCollider2D>().offset.x, GetComponent<CapsuleCollider2D>().offset.y);
+        origSize = new Vector2(GetComponent<CapsuleCollider2D>().size.x, GetComponent<CapsuleCollider2D>().size.y);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         //Get left right movement
         float moveHor = Input.GetAxis("Horizontal") * moveSpeed;
         //set default vertical speed
         float moveVert = rb.velocity.y;
+
+
 
         //check for walljump
         if (wallDirection != 0 && Input.GetButtonDown("Jump") && jumpState != 2)
@@ -77,11 +86,15 @@ public class WASDControls : MonoBehaviour {
         {
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
+            //GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);
+            //GetComponent<CapsuleCollider2D>().size = new Vector2(origSize.x, 7.57f);
         }
 
         //end slide because a wall is hit
         if (wallDirection != 0) {
             slideTimer = 0;
+            GetComponent<CapsuleCollider2D>().offset = origOffset;
+            GetComponent<CapsuleCollider2D>().size = origSize;
         }
 
         //check for diveInput
@@ -94,22 +107,33 @@ public class WASDControls : MonoBehaviour {
         if (slideTimer > Time.time)
         {
             moveHor = slideMove;
-
+            GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);
+            GetComponent<CapsuleCollider2D>().size = new Vector2(origSize.x,7.57f);
             if (jumpState < 2)
             {
                 slideJumped = true;
+
             }
 
             if (!slideJumped)
             {
+                //GetComponent<Stats>().Invuln(false);
+
                 slide.SetActive(true);
-            }                
-            else slide.SetActive(false);
+            }
+            else
+            {
+                slide.SetActive(false);
+                GetComponent<CapsuleCollider2D>().offset = origOffset;
+                GetComponent<CapsuleCollider2D>().size = origSize;
+            }
         }
         else
         {
             slideJumped = false;
             slide.SetActive(false);
+            GetComponent<CapsuleCollider2D>().offset = origOffset;
+            GetComponent<CapsuleCollider2D>().size = origSize;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -163,7 +187,7 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Jumping", (jumpState < 2) && (Input.GetButton("Jump")) && pushModifier == 0);
         anim.SetBool("Walljumping", (wallDirection != 0 && Input.GetButton("Jump") && jumpState != 2) && pushModifier !=0);
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
-        anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped);
+        anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped && wallDirection==0);
         anim.SetBool("Swinging", !canatk && swing.activeSelf);
     }
 

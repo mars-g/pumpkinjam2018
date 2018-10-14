@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
-    public float health = 1f;
     public bool invuln = false;
     public int comrades = 5;
 
@@ -14,7 +13,13 @@ public class Stats : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (invuln)
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        else
+            GetComponent<CapsuleCollider2D>().enabled = true;
+    }
+
+    public void Invuln(bool invbool) { invuln = invbool; }
 }
