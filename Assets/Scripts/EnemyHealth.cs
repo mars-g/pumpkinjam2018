@@ -54,9 +54,24 @@ public class EnemyHealth : MonoBehaviour {
             Die();
     }
 
+    public void Respawn()
+    {
+        curHealth = Health;
+        gameObject.SetActive(true);
+    }
+    public void RespawnHidden() {
+        curHealth = Health;
+        gameObject.SetActive(false);
+        if (GetComponent<SimpleTurret>())
+        {
+            StartCoroutine(GetComponent<SimpleTurret>().Swing());
+        }
+    }
+
     IEnumerator Dying()
     {
         //GetComponent<CapsuleCollider>().enabled = false;
+        Color ogColor = GetComponent<SpriteRenderer>().color;
         Color temp = Color.white;
         temp.a = 1;
         while (temp.a >= .1)
@@ -65,6 +80,7 @@ public class EnemyHealth : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = temp;
             yield return new WaitForFixedUpdate();
         }
+        GetComponent<SpriteRenderer>().color = ogColor;
         gameObject.SetActive(false);
     }
 

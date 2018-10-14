@@ -27,7 +27,7 @@ public class SimpleTurret : MonoBehaviour {
         StartCoroutine("Swing");
     }
 
-    IEnumerator Swing()
+    public IEnumerator Swing()
     {
         while (!GetComponent<EnemyHealth>().isDying())
         {
