@@ -79,6 +79,7 @@ public class EnemyHealth : MonoBehaviour {
         gameObject.SetActive(true);
     }
     public void RespawnHidden() {
+        dying = false;
         curHealth = Health;
         gameObject.SetActive(false);
         if (GetComponent<SimpleTurret>())
