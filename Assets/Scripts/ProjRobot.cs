@@ -99,7 +99,7 @@ public class ProjRobot : MonoBehaviour
 
     IEnumerator Chase()
     {
-        while (seenplayer)
+        while (seenplayer && !GetComponent<EnemyHealth>().isDying())
         {
             if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 8)
             {

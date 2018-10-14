@@ -44,6 +44,7 @@ public class WASDControls : MonoBehaviour {
 
     private GameObject slide;
     private GameObject swing;
+    private GameObject dive;
 
 	// Use this for initialization
 	void Start () {
@@ -53,18 +54,20 @@ public class WASDControls : MonoBehaviour {
 
         slide = transform.GetChild(0).gameObject;
         swing = transform.GetChild(1).gameObject;
+        dive = transform.GetChild(2).gameObject;
 
         origOffset = new Vector2(GetComponent<CapsuleCollider2D>().offset.x, GetComponent<CapsuleCollider2D>().offset.y);
         origSize = new Vector2(GetComponent<CapsuleCollider2D>().size.x, GetComponent<CapsuleCollider2D>().size.y);
 
     }
 
+    private float moveHor, moveVert;
     // Update is called once per frame
     void Update () {
         //Get left right movement
-        float moveHor = Input.GetAxis("Horizontal") * moveSpeed;
+        moveHor = Input.GetAxis("Horizontal") * moveSpeed;
         //set default vertical speed
-        float moveVert = rb.velocity.y;
+        moveVert = rb.velocity.y;
 
 
 
@@ -165,9 +168,9 @@ public class WASDControls : MonoBehaviour {
         if (moveVert < maxFallSpeed) {
             moveVert = maxFallSpeed;
         }
-        //SETS VELOCITY
+        //SETS VELOCITY      
         rb.velocity = new Vector2(moveHor + pushModifier, moveVert);
-
+ 
         //checks for and applies advanced jump physics
         if (jumpState < 2 && Mathf.Abs(rb.velocity.y) < 0.5)
         {
@@ -204,17 +207,18 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2 && !inDive);
         anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped && wallDirection==0);
         anim.SetBool("Swinging", !canatk && swing.activeSelf);
-        anim.SetBool("Divekicking", inDive);
+        anim.SetBool("Dicekicking", inDive);
     }
 
     private IEnumerator diveKick() {
         int curJumpState = jumpState;
         inDive = true;
-        while(wallDirection == 0 && jumpState == curJumpState)
+        dive.SetActive(true);
+        while(wallDirection == 0 && jumpState == curJumpState && !divehit )
         {
-
             yield return null;
         }
+        dive.SetActive(false);
         inDive = false;
     }
 
@@ -240,7 +244,7 @@ public class WASDControls : MonoBehaviour {
     private IEnumerator AdvancedJumpPhysics() {
         int currentJumpState = jumpState;
         for (float t = 0; t < jumpTime; t += Time.deltaTime) {
-            if (jumpState < currentJumpState || jumpState == 2 || wallJumped) {
+            if (jumpState < currentJumpState || jumpState == 2 || wallJumped || divehit || inDive) {
                 break;
             }
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - gravityScalar);
@@ -297,6 +301,32 @@ public class WASDControls : MonoBehaviour {
         }
         else if (collision.gameObject.GetComponent<Wall>()) {
             wallDirection = 0;
+        }
+    }
+
+    private bool divehit = false;
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(inDive && dive.activeSelf && collision.GetComponent<EnemyHealth>())
+        {
+            //if (collision.transform.position.y < transform.position.y)
+            //{
+                divehit = true;
+                moveVert = jumpSpeed;
+                rb.velocity = new Vector2(moveHor+pushModifier, jumpSpeed);
+                inDive = false;
+                /*if (jumpState == 0)
+                    jumpState = 1;
+                else if (jumpState == 1)
+                    jumpState = 1;*/
+            //}
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (divehit && collision.GetComponent<EnemyHealth>())
+        {
+                divehit = false;
         }
     }
 }

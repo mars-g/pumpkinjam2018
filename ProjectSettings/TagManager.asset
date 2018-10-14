@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG3
+    uniqueID: 1083887067
+    locked: 0
   - name: BG2
     uniqueID: 2114923317
     locked: 0
@@ -51,6 +54,9 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 506497519
+    locked: 0
+  - name: Scenery
+    uniqueID: 4172146927
     locked: 0
   - name: Default
     uniqueID: 0

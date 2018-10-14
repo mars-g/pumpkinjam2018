@@ -29,7 +29,7 @@ public class SimpleTurret : MonoBehaviour {
 
     IEnumerator Swing()
     {
-        while (true)
+        while (!GetComponent<EnemyHealth>().isDying())
         {
             projectiles[proj].transform.localPosition = origin;
             projectiles[proj].SetActive(true);

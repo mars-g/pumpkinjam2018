@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114534866635847650}
   m_Layer: 0
   m_Name: projectile_for_robot (1)
-  m_TagString: Untagged
+  m_TagString: EnemyWep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114391936632943868}
   m_Layer: 0
   m_Name: projectile_for_robot
-  m_TagString: Untagged
+  m_TagString: EnemyWep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 114288474313775958}
   m_Layer: 0
   m_Name: projectile_for_robot (2)
-  m_TagString: Untagged
+  m_TagString: EnemyWep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1841808097850278}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cfb11520921937d499075c8c97a78591, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41ec9e8e1afe214880c5522ab2ab329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 5
 --- !u!114 &114288474313775958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1bdca8a12d5cb4f8ced7c890aec709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!114 &114391936632943868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1bdca8a12d5cb4f8ced7c890aec709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!114 &114534866635847650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1bdca8a12d5cb4f8ced7c890aec709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!212 &212487489469696562
 SpriteRenderer:
   m_ObjectHideFlags: 1

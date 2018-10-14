@@ -31,6 +31,10 @@ public class ProjDestroyConditions : MonoBehaviour {
         {
             gameObject.SetActive(false);
         }
+        else if (collision.gameObject.GetComponent<Wall>())
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +58,10 @@ public class ProjDestroyConditions : MonoBehaviour {
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.GetComponent<Ground>())
+        {
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.GetComponent<Wall>())
         {
             gameObject.SetActive(false);
         }
