@@ -99,6 +99,7 @@ public class WASDControls : MonoBehaviour {
         //CHECK FOR SLIDE
         if (jumpState == 2 && Input.GetKeyDown("s") && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
         {
+            AudioManager.PlayerSlide();
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
             //GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);
@@ -115,7 +116,7 @@ public class WASDControls : MonoBehaviour {
         //check for diveInput
         if (wallDirection == 0 && jumpState != 2 && Input.GetKeyDown("s"))
         {
-            
+            AudioManager.Divekick();
             StartCoroutine(diveKick());
         }
         if (inDive)
@@ -330,6 +331,7 @@ public class WASDControls : MonoBehaviour {
                 moveVert = jumpSpeed;
                 rb.velocity = new Vector2(moveHor+pushModifier, jumpSpeed);
                 inDive = false;
+            AudioManager.DiveHit();
                 /*if (jumpState == 0)
                     jumpState = 1;
                 else if (jumpState == 1)

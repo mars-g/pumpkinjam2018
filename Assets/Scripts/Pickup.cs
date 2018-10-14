@@ -20,10 +20,12 @@ public class Pickup : MonoBehaviour {
         if (collision.gameObject.GetComponent<ComradePickup>()) {
             GetComponent<Stats>().comrades += collision.gameObject.GetComponent<ComradePickup>().count;
             Destroy(collision.gameObject);
+            AudioManager.PickUpOrb();
         }
         if (collision.gameObject.GetComponent<HeartPickup>()) {
             PlayerHealth.Heal(collision.gameObject.GetComponent<HeartPickup>().amount);
             Destroy(collision.gameObject);
+            AudioManager.PickUpOrb();
         }
     }
 }

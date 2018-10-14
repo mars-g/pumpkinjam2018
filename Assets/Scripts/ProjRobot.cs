@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ProjRobot : MonoBehaviour
 {
-
+    public AudioClip laser;
 
     private Rigidbody2D rb;
     //private Animator anim;
+    private AudioSource aud;
     private GameObject player;
     private GameObject[] projectiles;
     public float attackdist = 8;
@@ -21,6 +22,7 @@ public class ProjRobot : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        aud = GetComponent<AudioSource>();
         //anim = GetComponent<Animator>();
         player = FindObjectOfType<Stats>().gameObject;
 
@@ -34,6 +36,14 @@ public class ProjRobot : MonoBehaviour
         StartCoroutine("OnGuard");
     }
 
+    void StopPlay(AudioClip newclip)
+    {
+        if (aud.isPlaying) aud.Stop();
+
+        aud.clip = newclip;
+        aud.Play();
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -129,6 +139,8 @@ public class ProjRobot : MonoBehaviour
 
     IEnumerator Swing()
     {
+        StopPlay(laser);
+
         attacking = true;
 
         Vector3 directionproj = player.transform.position - transform.position;

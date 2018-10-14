@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour {
     public int Health = 10;
     private int curHealth;
     private bool dying = false;
+    public AudioClip hurtsound;
+    public bool playhurtsound = false;
+
 	// Use this for initialization
 	void OnEnable ()
     {
@@ -14,6 +17,17 @@ public class EnemyHealth : MonoBehaviour {
         curHealth = Health;
 	}
 	
+    void PlayHurtSound()
+    {
+        if (playhurtsound)
+        {
+            if (GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Stop();
+
+            GetComponent<AudioSource>().clip = hurtsound;
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -47,19 +61,26 @@ public class EnemyHealth : MonoBehaviour {
     {
         if (collision.gameObject.name == "PlayerSlide")
         {
+            PlayHurtSound();
             curHealth -= 2;
         }
         else if (collision.gameObject.name == "PlayerDive")
         {
+            PlayHurtSound();
+
             curHealth -= 3;
         }
         else if (collision.gameObject.name == "PlayerSwing")
         {
+            PlayHurtSound();
+
             AudioManager.SwingHit();
             curHealth -= 4;
         }
         else if (collision.gameObject.tag == "ExplosionBox")
         {
+            PlayHurtSound();
+
             curHealth -= 5;
         }
 
