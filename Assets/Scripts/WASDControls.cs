@@ -73,7 +73,7 @@ public class WASDControls : MonoBehaviour {
         }
 
         //CHECK FOR SLIDE
-        if (jumpState == 2 && Input.GetAxis("Vertical") < 0 && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
+        if (jumpState == 2 && Input.GetAxis("Vertical") < -0.2 && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
         {
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
@@ -82,6 +82,12 @@ public class WASDControls : MonoBehaviour {
         //end slide because a wall is hit
         if (wallDirection != 0) {
             slideTimer = 0;
+        }
+
+        //check for diveInput
+        if (wallDirection == 0 && jumpState == 2 && Input.GetAxis("Vertical") < -0.2)
+        {
+            Debug.Log("HERE");
         }
 
         //implement slide
