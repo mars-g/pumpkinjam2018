@@ -21,9 +21,9 @@ TagManager:
   - Weapon
   - EnemyWeaponSwung
   - PlayerWeaponSwung
-  - 
-  - 
-  - 
+  - Comrade
+  - Boss
+  - BossWaypoint
   - 
   - 
   - 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4766110672922156}
   - component: {fileID: 58581767865128396}
   - component: {fileID: 114807236674445182}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ExplodeBox
   m_TagString: ExplosionBox
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61464643909103310}
   - component: {fileID: 212109788697210206}
   - component: {fileID: 95705112997445198}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Comrades
   m_TagString: Comrade
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 61081936926823846}
   - component: {fileID: 114607782029356772}
   - component: {fileID: 114328941831177718}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
