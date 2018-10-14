@@ -36,6 +36,7 @@ public class WASDControls : MonoBehaviour {
     public float diveFallSpeed = 25f;
     public float diveMove = 5f;
     public bool inDive = false;
+    public float diveBuffer = 0.5f;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -74,6 +75,7 @@ public class WASDControls : MonoBehaviour {
             StartCoroutine(WallJump());
             StartCoroutine(AdvancedJumpPhysics());
             
+
         }
 
         //check for able to normal jump
@@ -84,11 +86,12 @@ public class WASDControls : MonoBehaviour {
                 jumpState--;
                 moveVert = jumpSpeed;
                 inDive = false;
+                
             }
         }
 
         //CHECK FOR SLIDE
-        if (jumpState == 2 && Input.GetAxis("Vertical") < -0.2 && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
+        if (jumpState == 2 && Input.GetKeyDown("s") && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
         {
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
@@ -104,7 +107,7 @@ public class WASDControls : MonoBehaviour {
         }
 
         //check for diveInput
-        if (wallDirection == 0 && jumpState != 2 && Input.GetAxis("Vertical") < 0)
+        if (wallDirection == 0 && jumpState != 2 && Input.GetKeyDown("s"))
         {
             
             StartCoroutine(diveKick());
