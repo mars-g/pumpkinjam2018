@@ -18,9 +18,11 @@ public class Pause : MonoBehaviour {
 
         if (Time.timeScale != 0.0f) {
             paused = false;
+            AudioListener.volume = 1;
         }
-		if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioListener.volume = 0;
             Cursor.visible = !paused;
             menuCanvas.SetActive(!paused);
             Time.timeScale = (paused) ? 1.0f: 0.0f;

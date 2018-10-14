@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Marshall.unity
     guid: 75c307e2685e33f4296e017486254baa
+  - enabled: 1
+    path: Assets/Scenes/Level1Draft.unity
+    guid: 46dc77d0bf6f69d4f8bda2b031d6de02
