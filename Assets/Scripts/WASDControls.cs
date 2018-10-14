@@ -32,6 +32,11 @@ public class WASDControls : MonoBehaviour {
     //jump state stores the number of jumps character can use before hitting the ground
     public int jumpState = 2;
 
+    //values for divekick
+    public float diveFallSpeed = 25f;
+    public float diveMove = 5f;
+    public bool inDive = false;
+
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
@@ -78,6 +83,7 @@ public class WASDControls : MonoBehaviour {
             {
                 jumpState--;
                 moveVert = jumpSpeed;
+                inDive = false;
             }
         }
 
@@ -98,9 +104,15 @@ public class WASDControls : MonoBehaviour {
         }
 
         //check for diveInput
-        if (wallDirection == 0 && jumpState == 2 && Input.GetAxis("Vertical") < -0.2)
+        if (wallDirection == 0 && jumpState != 2 && Input.GetAxis("Vertical") < 0)
         {
             
+            StartCoroutine(diveKick());
+        }
+        if (inDive)
+        {
+            moveVert = -1 * diveFallSpeed;
+            moveHor = (sr.flipX) ?  -1 * diveMove: diveMove;
         }
 
         //implement slide
@@ -189,6 +201,17 @@ public class WASDControls : MonoBehaviour {
         anim.SetBool("Freefalling", rb.velocity.y<=0 && jumpState<2);
         anim.SetBool("Sliding",slideTimer>Time.time && !slideJumped && wallDirection==0);
         anim.SetBool("Swinging", !canatk && swing.activeSelf);
+    }
+
+    private IEnumerator diveKick() {
+        int curJumpState = jumpState;
+        inDive = true;
+        while(wallDirection == 0 && jumpState == curJumpState)
+        {
+
+            yield return null;
+        }
+        inDive = false;
     }
 
     IEnumerator Swing()
