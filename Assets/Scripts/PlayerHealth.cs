@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int Health;
+    
     private int curhealth;
 
     //public HealthDisplay HealthDis;
@@ -53,6 +54,9 @@ public class PlayerHealth : MonoBehaviour
         if (instance.GetComponent<Stats>().invuln) {
             return;
         }
+        instance.GetComponent<Stats>().damageCo();
+
+
 
         instance.curhealth -= damage;
         if (instance.curhealth <= 0)
@@ -64,9 +68,14 @@ public class PlayerHealth : MonoBehaviour
 
 
     }
+
+    
     public static void Die()
     {
-
+        HealMax();
+        instance.gameObject.transform.position = instance.GetComponent<Stats>().lastCheckpoint;
+        
+        
     }
 
     public static void Heal(int heal)
