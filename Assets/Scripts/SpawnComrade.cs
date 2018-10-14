@@ -22,6 +22,7 @@ public class SpawnComrade : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0) && canSpawn)
         {
             if (stats.comrades > 0) {
+                AudioManager.PlaceComrade();
                 Vector3 position = FindObjectOfType<CursorControl>().gameObject.transform.position;
                 Instantiate(comrade, position, Quaternion.identity);
                 stats.comrades--;

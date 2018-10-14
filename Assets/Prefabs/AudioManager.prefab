@@ -391,3 +391,4 @@ MonoBehaviour:
   divehit: {fileID: 8300000, guid: c93a81998b2d79e4aa7a5a76a5510dda, type: 3}
   checkpoint: {fileID: 8300000, guid: cde380534a391d84fb3d36b36b0c1c83, type: 3}
   playerslide: {fileID: 8300000, guid: e5c43e303e197a949821ab7d5c8c8573, type: 3}
+  placecomrade: {fileID: 8300000, guid: dee29498869c20d4c94f9398c3d11c1f, type: 3}

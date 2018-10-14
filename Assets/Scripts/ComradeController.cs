@@ -63,6 +63,7 @@ public class ComradeController : MonoBehaviour {
     }
     IEnumerator FadeOutCo()
     {
+
         canexplode = false;
         fadein.a = 1;
         GetComponent<SpriteRenderer>().color = fadein;
@@ -76,6 +77,7 @@ public class ComradeController : MonoBehaviour {
     }
     private IEnumerator explodeCo()
     {
+        GetComponent<AudioSource>().Play();
         GetComponentInChildren<CircleCollider2D>().enabled = true;
         Color temp = Color.white;
         temp.a = 1;
