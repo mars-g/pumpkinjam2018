@@ -99,6 +99,7 @@ public class WASDControls : MonoBehaviour {
         //CHECK FOR SLIDE
         if (jumpState == 2 && Input.GetKeyDown("s") && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
         {
+            AudioManager.PlayerSlide();
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
             //GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);

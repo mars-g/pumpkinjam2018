@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  hurtsound: {fileID: 0}
-  playhurtsound: 0
+  hurtsound: {fileID: 8300000, guid: 8eb5cf107a9acc14ebccb69601fc8254, type: 3}
+  playhurtsound: 1
 --- !u!212 &212249015938099806
 SpriteRenderer:
   m_ObjectHideFlags: 1
