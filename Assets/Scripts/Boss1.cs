@@ -188,7 +188,7 @@ public class Boss1 : MonoBehaviour {
 
         if (collision.gameObject.name == "EndLevel")
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(2);
         }
     }
 }

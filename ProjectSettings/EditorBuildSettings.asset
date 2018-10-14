@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b36b9cd396cf76c429c36f32ae9473c0
   - enabled: 1
-    path: Assets/Scenes/Marshall.unity
-    guid: 75c307e2685e33f4296e017486254baa
-  - enabled: 1
     path: Assets/Scenes/Level1Draft.unity
     guid: 46dc77d0bf6f69d4f8bda2b031d6de02
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 936ca2f90d754704b937a2c1cee58e3f
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ca1362ab8af3b8f4cb124ee57d8730fc
+  - enabled: 1
+    path: Assets/Scenes/ending_scene.unity
+    guid: d52e0b77967451f49a77cef74c6860b1
