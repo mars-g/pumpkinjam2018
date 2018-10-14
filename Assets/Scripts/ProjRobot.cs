@@ -10,7 +10,7 @@ public class ProjRobot : MonoBehaviour
     //private Animator anim;
     private GameObject player;
     private GameObject[] projectiles;
-
+    public float attackdist = 8;
 
     private bool attacking = false;
     private bool seenplayer = false;
@@ -68,7 +68,7 @@ public class ProjRobot : MonoBehaviour
 
     bool DetectPlayer()
     {
-        if ((transform.position - player.transform.position).magnitude <= 10)
+        if ((transform.position - player.transform.position).magnitude <= attackdist+10f)
         {
             return true;
         }
@@ -101,7 +101,7 @@ public class ProjRobot : MonoBehaviour
     {
         while (seenplayer && !GetComponent<EnemyHealth>().isDying())
         {
-            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 8)
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= attackdist)
             {
                 Vector3 direction = player.transform.position - transform.position;
                 //direction.Normalize();

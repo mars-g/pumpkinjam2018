@@ -5,6 +5,8 @@ using UnityEngine;
 public class MeleeRobotEnemy : MonoBehaviour {
 
 
+    public float attackdist = 2.5f;
+
     private Rigidbody2D rb;
     private Animator anim;
     private GameObject hitbox;
@@ -94,7 +96,7 @@ public class MeleeRobotEnemy : MonoBehaviour {
     {
         while (seenplayer && !GetComponent<EnemyHealth>().isDying())
         {
-            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 2.5)
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= attackdist)
             {
                 Vector3 direction = player.transform.position - transform.position;
                 //direction.Normalize();
