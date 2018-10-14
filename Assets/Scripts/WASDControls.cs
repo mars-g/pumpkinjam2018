@@ -100,6 +100,7 @@ public class WASDControls : MonoBehaviour {
         if (jumpState == 2 && Input.GetKeyDown("s") && slideTimer + slideCD < Time.time && Mathf.Abs(moveHor) > 1.5)
         {
             AudioManager.PlayerSlide();
+            GetComponent<Stats>().MakeInvuln(0.5f);
             slideTimer = Time.time + slideTime;
             slideMove = Mathf.Sign(moveHor) * slideSpeed;
             //GetComponent<CapsuleCollider2D>().offset = new Vector2(origOffset.x, -5.22f);
@@ -175,6 +176,7 @@ public class WASDControls : MonoBehaviour {
             {
 
                 StartCoroutine("Swing");
+                GetComponent<Stats>().MakeInvuln(0.2f);
             }
         }
 

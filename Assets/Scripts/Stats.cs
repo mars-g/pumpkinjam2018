@@ -63,14 +63,14 @@ public class Stats : MonoBehaviour {
             else
             {
                
-                GetComponent<SpriteRenderer>().color = curColor;
+                GetComponent<SpriteRenderer>().color = Color.white;
                 t += 0.2f;
                 yield return new WaitForSeconds(0.2f);
             }
             flashBool = !flashBool;
             yield return null;
         }
-            GetComponent<SpriteRenderer>().color = curColor;
+        GetComponent<SpriteRenderer>().color = Color.white;
        
         invuln = false;
         yield return null;
