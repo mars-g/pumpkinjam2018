@@ -9,6 +9,7 @@ public class SimpleTurret : MonoBehaviour {
     public float cooldown = .7f;
     public Vector3 direction = Vector3.zero;
     public Vector3 origin;
+    public bool playsound = false;
 
     /*private AudioSource aud;
     public AudioClip laser;
@@ -35,6 +36,11 @@ public class SimpleTurret : MonoBehaviour {
     {
         while (!GetComponent<EnemyHealth>().isDying())
         {
+            if (playsound)
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().Play();
+            }
             projectiles[proj].transform.localPosition = origin;
             projectiles[proj].SetActive(true);
             projectiles[proj].GetComponent<Rigidbody2D>().velocity = direction.normalized * projspeed;

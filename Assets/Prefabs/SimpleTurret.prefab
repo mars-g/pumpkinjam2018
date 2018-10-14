@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 114591426728859790}
   - component: {fileID: 114161259932924884}
   - component: {fileID: 50240482820347780}
+  - component: {fileID: 82384716053692152}
   m_Layer: 0
   m_Name: SimpleTurret
   m_TagString: Untagged
@@ -487,6 +488,92 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06953085, y: -0.0000003791415}
   m_Size: {x: 2.8609405, y: 0.33251014}
   m_Direction: 1
+--- !u!82 &82384716053692152
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140958118884576}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e9270e6cb50ea564091d0ad83d38220a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.72
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 71
+  DopplerLevel: 2.4
+  MinDistance: 1
+  MaxDistance: 17
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.9940338
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5377521
+      value: 0.790342
+      inSlope: -1.4907122
+      outSlope: -1.4907122
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114161259932924884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,6 +589,7 @@ MonoBehaviour:
   cooldown: 0.7
   direction: {x: -1, y: 0, z: 0}
   origin: {x: -2.8, y: 1.16, z: 0}
+  playsound: 1
 --- !u!114 &114264343117825548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,6 +626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
+  hurtsound: {fileID: 0}
+  playhurtsound: 0
 --- !u!114 &114630642178663282
 MonoBehaviour:
   m_ObjectHideFlags: 1
