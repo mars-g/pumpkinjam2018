@@ -16,7 +16,7 @@ public class AfterBoss : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!boss.activeSelf)
+        if (boss.GetComponent<EnemyHealth>().isDying())
         {
             if (disappearafterboss)
             {
