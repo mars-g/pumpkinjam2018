@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class Boss1 : MonoBehaviour {
 
     private Animator anim;
     private Rigidbody2D rb;
+    private AudioSource aud;
 
     private GameObject player;
 
@@ -49,6 +51,7 @@ public class Boss1 : MonoBehaviour {
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        aud = GetComponent<AudioSource>();
 
         curWaypoint = waypoints[wpNum];
 
@@ -128,6 +131,7 @@ public class Boss1 : MonoBehaviour {
 
     IEnumerator Normal()
     {
+        aud.Play();
         canatk = false;
         Vector3 directionproj = player.transform.position - transform.position;
         directionproj.Normalize();
@@ -148,6 +152,7 @@ public class Boss1 : MonoBehaviour {
 
     IEnumerator Special()
     {
+        aud.Play();
         canatk = false;
         Vector2 directionproj = Vector2.right * Random.Range(-.3f, .3f);
         directionproj += Vector2.up;
@@ -179,6 +184,11 @@ public class Boss1 : MonoBehaviour {
                 attackStart = Time.time;
                 rb.velocity = Vector3.zero;
             }
+        }
+
+        if (collision.gameObject.name == "EndLevel")
+        {
+            SceneManager.LoadScene(4);
         }
     }
 }
