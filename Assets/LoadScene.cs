@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
-
+    public int scene = 3;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,7 +19,7 @@ public class LoadScene : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(scene);
         }
     }
 }
