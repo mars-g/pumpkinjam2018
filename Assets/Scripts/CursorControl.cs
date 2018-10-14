@@ -18,7 +18,7 @@ public class CursorControl : MonoBehaviour {
         v.z = 1.0f;
         transform.position = Camera.main.ScreenToWorldPoint(v);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             GetComponent<SpriteRenderer>().material.shader = pressShader;
         }

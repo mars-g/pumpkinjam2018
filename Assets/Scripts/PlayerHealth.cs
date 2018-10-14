@@ -55,7 +55,6 @@ public class PlayerHealth : MonoBehaviour
     public static void TakeDamage(int damage)
     {
 
-        AudioManager.PlayerHurt();
         if (instance.GetComponent<Stats>().invuln) {
             return;
         }
@@ -64,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
 
         instance.curhealth -= damage;
+        AudioManager.PlayerHurt();
         if (instance.curhealth <= 0)
         {
             instance.curhealth = 0;
@@ -79,7 +79,11 @@ public class PlayerHealth : MonoBehaviour
     {
         HealMax();
         instance.gameObject.transform.position = instance.GetComponent<Stats>().lastCheckpoint;
-        
+        instance.GetComponent<Stats>().comrades = instance.GetComponent<Stats>().saveComrade;
+
+        if (FindObjectOfType<BossSpawnStart>()) {
+            FindObjectOfType<BossSpawnStart>().resetEnemiesAndWalls();
+        }
         
     }
 
@@ -115,7 +119,9 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(collision.gameObject.GetComponent<EnemyWepDamage>().Damage);
         }
-        else if (collision.gameObject.tag == "Spikes") {
+
+        else if (collision.gameObject.tag == "Spikes")
+        {
             onSpike = true;
         }
         else if (collision.gameObject.GetComponent<KillBox>())

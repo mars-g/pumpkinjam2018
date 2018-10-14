@@ -7,6 +7,7 @@ public class Stats : MonoBehaviour {
     public float invulnTime = 2f;
     public bool invuln = false;
     public Vector3 lastCheckpoint = new Vector3(0f,0f,0f);
+    public int saveComrade = 0;
     public int comrades = 5;
 
 	// Use this for initialization
@@ -34,6 +35,7 @@ public class Stats : MonoBehaviour {
         {
             AudioManager.Checkpoint();
             lastCheckpoint = collision.gameObject.transform.position;
+            saveComrade = comrades;
             StartCoroutine(destroyCheckpoint(collision.gameObject));
 
         }
