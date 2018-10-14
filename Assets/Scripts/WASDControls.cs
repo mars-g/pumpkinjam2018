@@ -74,6 +74,7 @@ public class WASDControls : MonoBehaviour {
         //check for walljump
         if (wallDirection != 0 && Input.GetButtonDown("Jump") && jumpState != 2)
         {
+            AudioManager.PlayerJump();
             moveVert = jumpSpeed * 1.3f;
             StartCoroutine(WallJump());
             StartCoroutine(AdvancedJumpPhysics());
@@ -86,6 +87,7 @@ public class WASDControls : MonoBehaviour {
         {
             if (Input.GetButtonDown("Jump"))
             {
+                AudioManager.PlayerJump();
                 jumpState--;
                 moveVert = jumpSpeed;
                 inDive = false;
@@ -224,6 +226,7 @@ public class WASDControls : MonoBehaviour {
 
     IEnumerator Swing()
     {
+        AudioManager.SwingMiss();
         canatk = false;
         swing.SetActive(true);
         yield return new WaitForSeconds(.15f);

@@ -55,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
     public static void TakeDamage(int damage)
     {
 
+        AudioManager.PlayerHurt();
         if (instance.GetComponent<Stats>().invuln) {
             return;
         }
