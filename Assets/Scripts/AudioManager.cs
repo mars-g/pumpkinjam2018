@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour {
 
     public AudioSource playersounds;
 
-    public AudioClip swingmiss, swinghit, playerhurt, playerjump, pickuporb;
-
+    public AudioClip swingmiss, swinghit, playerhurt, playerjump, pickuporb, divekick, divehit;
+    public AudioClip checkpoint;
     // Use this for initialization
     void Start()
     {
@@ -56,6 +56,20 @@ public class AudioManager : MonoBehaviour {
         instance.StopPlayerSounds();
         instance.PlayPlayerSounds(instance.pickuporb);
     }
-
+    public static void Divekick()
+    {
+        instance.StopPlayerSounds();
+        instance.PlayPlayerSounds(instance.divekick);
+    }
+    public static void DiveHit()
+    {
+        instance.StopPlayerSounds();
+        instance.PlayPlayerSounds(instance.divehit);
+    }
+    public static void Checkpoint()
+    {
+        instance.StopPlayerSounds();
+        instance.PlayPlayerSounds(instance.checkpoint);
+    }
 
 }

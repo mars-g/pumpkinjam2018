@@ -387,3 +387,6 @@ MonoBehaviour:
   playerhurt: {fileID: 8300000, guid: 40c956505a6c4e94c98eabc0a6ca3687, type: 3}
   playerjump: {fileID: 8300000, guid: a9abf0d7d291eb144a708c15d572073a, type: 3}
   pickuporb: {fileID: 8300000, guid: c1c535db628c1cf419884a9e450675df, type: 3}
+  divekick: {fileID: 8300000, guid: c020bae1a507c0c4b93487e135d2e7f9, type: 3}
+  divehit: {fileID: 8300000, guid: c93a81998b2d79e4aa7a5a76a5510dda, type: 3}
+  checkpoint: {fileID: 8300000, guid: cde380534a391d84fb3d36b36b0c1c83, type: 3}

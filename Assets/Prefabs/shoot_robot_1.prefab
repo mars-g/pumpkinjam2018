@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 114257192451817586}
   - component: {fileID: 114037342343847924}
   - component: {fileID: 70904503613804308}
+  - component: {fileID: 82104401094989064}
   m_Layer: 0
   m_Name: shoot_robot_1
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1841808097850278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9243774, y: -0.84, z: 0}
+  m_LocalPosition: {x: 71.12518, y: -0.9750037, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4285321975783494}
@@ -284,6 +285,86 @@ CapsuleCollider2D:
   m_Offset: {x: 0.39160788, y: -0.83216476}
   m_Size: {x: 2.832857, y: 4.5661125}
   m_Direction: 0
+--- !u!82 &82104401094989064
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841808097850278}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95570264447265434
 Animator:
   serializedVersion: 3
@@ -312,6 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206f109b460bc91419dcb252136cb26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laser: {fileID: 8300000, guid: e9270e6cb50ea564091d0ad83d38220a, type: 3}
+  attackdist: 20
 --- !u!114 &114257192451817586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
+  hurtsound: {fileID: 8300000, guid: 8eb5cf107a9acc14ebccb69601fc8254, type: 3}
+  playhurtsound: 1
 --- !u!114 &114288474313775958
 MonoBehaviour:
   m_ObjectHideFlags: 1

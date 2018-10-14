@@ -10,6 +10,10 @@ public class SimpleTurret : MonoBehaviour {
     public Vector3 direction = Vector3.zero;
     public Vector3 origin;
 
+    /*private AudioSource aud;
+    public AudioClip laser;
+    public bool playlasersound = false;*/
+
     private GameObject[] projectiles;
 
     private int proj = 0;
@@ -43,4 +47,13 @@ public class SimpleTurret : MonoBehaviour {
             yield return new WaitForSeconds(cooldown);
         }
     }
+
+    /*void StopPlay(AudioClip newclip)
+    {
+        if (aud.isPlaying) aud.Stop();
+
+        aud.clip = newclip;
+        aud.Play();
+
+    }*/
 }

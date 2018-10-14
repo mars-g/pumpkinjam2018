@@ -32,6 +32,7 @@ public class Stats : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Checkpoint")
         {
+            AudioManager.Checkpoint();
             lastCheckpoint = collision.gameObject.transform.position;
             StartCoroutine(destroyCheckpoint(collision.gameObject));
 

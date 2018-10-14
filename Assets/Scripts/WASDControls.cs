@@ -115,7 +115,7 @@ public class WASDControls : MonoBehaviour {
         //check for diveInput
         if (wallDirection == 0 && jumpState != 2 && Input.GetKeyDown("s"))
         {
-            
+            AudioManager.Divekick();
             StartCoroutine(diveKick());
         }
         if (inDive)
@@ -329,6 +329,7 @@ public class WASDControls : MonoBehaviour {
                 moveVert = jumpSpeed;
                 rb.velocity = new Vector2(moveHor+pushModifier, jumpSpeed);
                 inDive = false;
+            AudioManager.DiveHit();
                 /*if (jumpState == 0)
                     jumpState = 1;
                 else if (jumpState == 1)

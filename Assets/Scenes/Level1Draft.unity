@@ -2683,6 +2683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
+  hurtsound: {fileID: 0}
+  playhurtsound: 0
 --- !u!114 &449756384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
+  hurtsound: {fileID: 0}
+  playhurtsound: 0
 --- !u!70 &456661091
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3224,11 +3228,6 @@ Prefab:
     - target: {fileID: 1841808097850278, guid: 2e32469ba72464248b7b877ca265f634, type: 2}
       propertyPath: m_Name
       value: shoot_robot_1 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114037342343847924, guid: 2e32469ba72464248b7b877ca265f634,
-        type: 2}
-      propertyPath: attackdist
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e32469ba72464248b7b877ca265f634, type: 2}
@@ -3746,6 +3745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
+  hurtsound: {fileID: 0}
+  playhurtsound: 0
 --- !u!70 &574809843
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6484,6 +6485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
+  hurtsound: {fileID: 0}
+  playhurtsound: 0
 --- !u!4 &1004573482 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4269176351261448, guid: 763417e4f77aa0d459fc7cef13323cb3,
@@ -10419,7 +10422,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4338846531233216, guid: 88c79331685e0ef488fbac708754e5cd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -66.9
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 4338846531233216, guid: 88c79331685e0ef488fbac708754e5cd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -14812,11 +14815,6 @@ Prefab:
     - target: {fileID: 1841808097850278, guid: 2e32469ba72464248b7b877ca265f634, type: 2}
       propertyPath: m_Name
       value: shoot_robot_1 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114037342343847924, guid: 2e32469ba72464248b7b877ca265f634,
-        type: 2}
-      propertyPath: attackdist
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e32469ba72464248b7b877ca265f634, type: 2}
