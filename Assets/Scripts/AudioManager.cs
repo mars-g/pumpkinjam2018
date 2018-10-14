@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour {
 
     public AudioSource playersounds;
 
-    public AudioClip swingmiss, swinghit, playerhurt, playerjump;
+    public AudioClip swingmiss, swinghit, playerhurt, playerjump, pickuporb;
 
     // Use this for initialization
     void Start()
@@ -50,6 +50,11 @@ public class AudioManager : MonoBehaviour {
     {
         instance.StopPlayerSounds();
         instance.PlayPlayerSounds(instance.playerhurt);
+    }
+    public static void PickUpOrb()
+    {
+        instance.StopPlayerSounds();
+        instance.PlayPlayerSounds(instance.pickuporb);
     }
 
 
