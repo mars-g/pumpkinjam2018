@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     
     private int curhealth;
 
+    private bool onSpike = false;
     //public HealthDisplay HealthDis;
 
 
@@ -40,6 +41,9 @@ public class PlayerHealth : MonoBehaviour
         {
             HealMax();
         }*/
+        if (onSpike) {
+            TakeDamage(2);
+        }
     }
 
     public static void SendToDisplay()
@@ -109,6 +113,21 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "EnemyHitbox")
         {
             TakeDamage(collision.gameObject.GetComponent<EnemyWepDamage>().Damage);
+        }
+        else if (collision.gameObject.tag == "Spikes") {
+            onSpike = true;
+        }
+        else if (collision.gameObject.GetComponent<KillBox>())
+        {
+            Die();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Spikes")
+        {
+            onSpike = false;
         }
     }
 

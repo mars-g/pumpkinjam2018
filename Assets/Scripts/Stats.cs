@@ -47,7 +47,6 @@ public class Stats : MonoBehaviour {
 
         Color curColor = GetComponent<SpriteRenderer>().color;
         Color newColor = Color.red;
-        Debug.Log(curColor);
         invuln = true;
         bool flashBool = true;
         for (float t = 0; t < invulnTime; t += Time.deltaTime)
@@ -55,7 +54,6 @@ public class Stats : MonoBehaviour {
             if (flashBool)
             {
                 GetComponent<SpriteRenderer>().color = newColor;
-                Debug.Log(GetComponent<SpriteRenderer>().color);
                 t += 0.2f;
                 yield return new WaitForSeconds(0.2f);
             }
