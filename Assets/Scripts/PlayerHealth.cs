@@ -79,7 +79,11 @@ public class PlayerHealth : MonoBehaviour
     {
         HealMax();
         instance.gameObject.transform.position = instance.GetComponent<Stats>().lastCheckpoint;
-        
+        instance.GetComponent<Stats>().comrades = instance.GetComponent<Stats>().saveComrade;
+
+        if (FindObjectOfType<BossSpawnStart>()) {
+            FindObjectOfType<BossSpawnStart>().resetEnemiesAndWalls();
+        }
         
     }
 
