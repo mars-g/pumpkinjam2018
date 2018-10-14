@@ -9,6 +9,8 @@ TagManager:
   - ExplosionBox
   - Ground
   - EnemyWep
+  - Checkpoint
+  - Spikes
   layers:
   - Default
   - TransparentFX
