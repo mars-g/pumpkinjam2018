@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjRobot : MonoBehaviour
+public class RedDrone : MonoBehaviour
 {
 
 
@@ -25,7 +25,7 @@ public class ProjRobot : MonoBehaviour
         player = FindObjectOfType<Stats>().gameObject;
 
         projectiles = new GameObject[transform.childCount];
-        for(int i=0; i<transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             projectiles[i] = transform.GetChild(i).gameObject;
         }
@@ -104,15 +104,8 @@ public class ProjRobot : MonoBehaviour
             if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 8)
             {
                 Vector3 direction = player.transform.position - transform.position;
-                //direction.Normalize();
-                if (direction.x > 0)
-                {
-                    rb.velocity = Vector3.right * 3f;
-                }
-                else if (direction.x < 0)
-                {
-                    rb.velocity = Vector3.right * -3f;
-                }
+                direction.Normalize();
+                rb.velocity = direction * 3.5f;
             }
             else
             {
@@ -136,14 +129,14 @@ public class ProjRobot : MonoBehaviour
 
         projectiles[proj].transform.localPosition = Vector3.zero;
         projectiles[proj].SetActive(true);
-        projectiles[proj].GetComponent<Rigidbody2D>().velocity = directionproj * 6f;
+        projectiles[proj].GetComponent<Rigidbody2D>().velocity = directionproj * 8f;
 
         proj++;
         if (proj >= transform.childCount)
             proj = 0;
 
 
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1f);
         attacking = false;
     }
 }
