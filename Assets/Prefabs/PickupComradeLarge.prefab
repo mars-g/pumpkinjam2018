@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078473098595936}
   - component: {fileID: 114819216822198604}
+  - component: {fileID: 58562753338306082}
   m_Layer: 0
   m_Name: PickupComradeLarge
   m_TagString: Untagged
@@ -349,6 +350,21 @@ Transform:
   m_Father: {fileID: 4078473098595936}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58562753338306082
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732094265283970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.89
 --- !u!95 &95530000034790898
 Animator:
   serializedVersion: 3

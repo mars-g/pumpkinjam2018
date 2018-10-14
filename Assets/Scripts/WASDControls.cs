@@ -100,7 +100,7 @@ public class WASDControls : MonoBehaviour {
         //check for diveInput
         if (wallDirection == 0 && jumpState == 2 && Input.GetAxis("Vertical") < -0.2)
         {
-            Debug.Log("HERE");
+            
         }
 
         //implement slide

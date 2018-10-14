@@ -1480,26 +1480,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015692836}
---- !u!1 &1016806943 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1732094265283970, guid: cef2666b5df828a42afff76d915a30a6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1731900315}
---- !u!58 &1016806944
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1016806943}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.89
 --- !u!1 &1026199133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,26 +2045,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cef2666b5df828a42afff76d915a30a6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1758431238 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1034562734907944, guid: d65a8e741be91be43b4c8ec2a8d1a400,
-    type: 2}
-  m_PrefabInternal: {fileID: 1094988244}
---- !u!58 &1758431239
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1758431238}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.89
 --- !u!1 &1826183472
 GameObject:
   m_ObjectHideFlags: 0
